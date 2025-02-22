@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to shared CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1"></script>
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 20px;
+        }
+        iframe {
+            max-width: 650px;
+            width: 100%;
+            height: 480px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background: white;
+        }
+        .cta {
+            display: inline-block;
+            background: #38c5f0;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 20px auto;
+            transition: background 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            font-size: 18px;
+        }
+        .cta:hover {
+            background: #106a94;
+            transform: translateY(-3px) scale(1.05);
+        }
+        .action-step {
+            background: rgba(223, 60, 38, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            color: #df3c26;
+        }
+    </style>
+</head>
+<body onload="celebrate()">
+
+<div class="container">
+    <img src="Vot-ER_2024_Logo_fullcolor.png" alt="Vot-ER Logo" class="logo">
+    <h2>🎉 CONGRATULATIONS! 🎉</h2>
+    <p>You've successfully completed the Vot-ER Ambassador Toolkit training. Your dedication to civic engagement in healthcare is invaluable, and we appreciate your commitment to empowering communities through voter registration.</p>
+
+    <div class="divider"></div>
+
+    <p class="action-step">🎯 <strong>Action Step:</strong> Let Vot-ER know you are ready to present at an upcoming conference or speaking engagement! Fill out the form below to notify our team.</p>
+
+    <div class="form-container">
+        <iframe data-tally-src="https://forms.vot-er.org/ambassador-training?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&embed=1" loading="lazy" frameborder="0" marginheight="0" marginwidth="0" title="Confirm that you completed your ambassador training"></iframe>
+    </div>
+    
+    <script>
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+            "undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))
+        };
+        if("undefined"!=typeof Tally)v();
+        else if(d.querySelector('script[src="'+w+'"]')==null){
+            var s=d.createElement("script");
+            s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);
+        }
+    </script>
+
+    <a class="cta" href="step3.html">⬅️ Back to Step 3</a>
+</div>
+
+<script>
+    function celebrate() {
+        var duration = 7 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = {
+            startVelocity: 25,
+            spread: 360,
+            ticks: 120,
+            gravity: 0.5,
+            scalar: 1.2,
+            colors: ["#38c5f0", "#df3c26", "#106a94"],
+            shapes: ["square", "circle"],
+            zIndex: 9999
+        };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function() {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            confetti(Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 }
+            }));
+        }, 300);
+    }
+</script>
+
+</body>
+</html>

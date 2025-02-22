@@ -1,0 +1,192 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e6f5fc, #d1ecf6);
+    margin: 40px;
+    color: #083a51;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* Container for Main Content */
+.container {
+    max-width: 900px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); margin: 0 auto;
+}
+
+/* Header Styling */
+.header {
+    background: #083a51; /* Dark Blue Header */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Title and Headings */
+h1, h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #df3c26; /* Red Header */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+h2 span {
+    color: #083a51; /* Dark Blue for contrast */
+}
+
+/* Paragraphs and Text */
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* CTA Buttons */
+.cta {
+    background: #df3c26;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.cta:hover {
+    background: #a5291b;
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* Info Boxes for Key Sections */
+.info-box {
+    background: #f9fcff;
+    padding: 20px;
+    border-left: 5px solid #38c5f0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.info-box img {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+}
+
+/* Divider for Sections */
+.divider {
+    height: 5px;
+    background: linear-gradient(to right, #38c5f0, #df3c26);
+    border-radius: 3px;
+    margin: 30px 0;
+}
+
+/* Custom Bullet Icons */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+ul li {
+    position: relative;
+    padding-left: 35px; /* Space for custom bullet */
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+ul li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    background: url('Asset 1.svg') no-repeat center center;
+    background-size: contain;
+}
+
+/* Accordion Styling */
+.accordion {
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #106a94;
+    background-color: #38c5f0;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.accordion:hover {
+    background-color: #106a94;
+}
+.accordion:after {
+    content: "▼";
+    font-size: 14px;
+    color: white;
+    transition: transform 0.3s;
+}
+.accordion.active:after {
+    content: "▲";
+}
+.accordion.active {
+    background-color: #106a94;
+    transform: translateY(-2px);
+}
+
+/* Accordion Panel Styling */
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 15px;
+    background: #f9fcff;
+    border-left: 3px solid #38c5f0;
+    border-radius: 5px;
+}
+.panel p, .panel ul {
+    font-size: 17px;
+    padding: 10px 0;
+}
+
+/* Action Step Emphasis */
+.action-step {
+    color: #df3c26;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Hyperlinks */
+a {
+    color: #106a94;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+a:hover {
+    text-decoration: underline;
+    color: #083a51;
+}
+
+/* Logo Styling */
+.logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 220px;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
