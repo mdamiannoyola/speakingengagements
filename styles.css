@@ -190,3 +190,15 @@ a:hover {
     max-width: 220px;
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
 }
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 10px auto;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 315px;
+    display: block;
+}
