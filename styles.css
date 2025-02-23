@@ -1,3 +1,4 @@
+/* ✅ General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #e6f5fc, #d1ecf6);
@@ -7,31 +8,21 @@ body {
     line-height: 1.75;
 }
 
-/* Container for Main Content */
+/* ✅ Container for Main Content */
 .container {
     max-width: 900px;
     background: white;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
-/* Header Styling */
-.header {
-    background: #083a51; /* Dark Blue Header */
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 20px;
-    border-radius: 10px 10px 0 0;
-}
-
-/* Title and Headings */
+/* ✅ Headers */
 h1, h2 {
     font-size: 26px;
     font-weight: 700;
-    color: #df3c26; /* Red Header */
+    color: #df3c26; /* Vot-ER Red */
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -39,14 +30,94 @@ h2 span {
     color: #083a51; /* Dark Blue for contrast */
 }
 
-/* Paragraphs and Text */
+/* ✅ Paragraphs */
 p {
     font-size: 18px;
     line-height: 1.8;
-    color: #333;
+    color: #083a51;
 }
 
-/* CTA Buttons */
+/* ✅ Callout Box with Blue Left Border */
+.callout {
+    background: #f8f6f2; /* Light background */
+    border-left: 5px solid #106a94; /* Vot-ER Blue */
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: left;
+    color: #083a51;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* Adds spacing between icon and text */
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* ✅ Ensures icon does not feel cramped */
+.callout img {
+    width: 40px;
+    height: auto;
+    align-self: flex-start;
+}
+
+/* ✅ Stack icon and text on smaller screens */
+@media screen and (max-width: 767px) {
+    .callout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .callout img {
+        margin-bottom: 10px;
+    }
+}
+
+/* ✅ Accordion Styling (Dropdowns) */
+.accordion {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #106a94;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    border-bottom: 2px solid #38c5f0;
+    text-align: left;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ Plus/Minus Toggle */
+.accordion::before {
+    content: '+';
+    font-size: 24px;
+    font-weight: 700;
+    color: #df3c26;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+}
+.accordion.active::before {
+    content: '-';
+}
+
+/* ✅ Dropdown Panel (Hidden Content) */
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 20px;
+}
+
+.panel.active {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* ✅ CTA Buttons */
 .cta {
     background: #df3c26;
     color: white;
@@ -62,131 +133,137 @@ p {
 }
 .cta:hover {
     background: #a5291b;
-    transform: translateY(-3px); /* Lift effect */
+    transform: translateY(-3px);
+}
+.cta[disabled] {
+    background: gray;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
-/* Info Boxes for Key Sections */
-.info-box {
-    background: #f9fcff;
-    padding: 20px;
-    border-left: 5px solid #38c5f0;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-.info-box img {
-    width: 40px; /* Adjust icon size */
-    height: 40px;
-}
-
-/* Divider for Sections */
-.divider {
-    height: 5px;
-    background: linear-gradient(to right, #38c5f0, #df3c26);
-    border-radius: 3px;
-    margin: 30px 0;
-}
-
-/* Custom Bullet Icons */
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-ul li {
-    position: relative;
-    padding-left: 35px; /* Space for custom bullet */
-    margin-bottom: 10px;
-    font-size: 17px;
-}
-ul li:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 24px;
-    height: 24px;
-    background: url('Asset 1.svg') no-repeat center center;
-    background-size: contain;
-}
-
-/* Accordion Styling */
-.accordion {
-    width: 100%;
-    border: none;
-    background: none;
-    text-align: left;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #106a94;
-    background-color: #38c5f0;
-    color: white;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.accordion:hover {
-    background-color: #106a94;
-}
-.accordion:after {
-    content: "▼";
-    font-size: 14px;
-    color: white;
-    transition: transform 0.3s;
-}
-.accordion.active:after {
-    content: "▲";
-}
-.accordion.active {
-    background-color: #106a94;
-    transform: translateY(-2px);
-}
-
-/* Accordion Panel Styling */
-.panel {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    padding: 0 15px;
-    background: #f9fcff;
-    border-left: 3px solid #38c5f0;
-    border-radius: 5px;
-}
-.panel p, .panel ul {
-    font-size: 17px;
-    padding: 10px 0;
-}
-
-/* Action Step Emphasis */
+/* ✅ Action Step Callout */
 .action-step {
-    color: #df3c26;
+    background: #f8f6f2;
+    border-left: 5px solid #df3c26;
+    padding: 12px;
+    border-radius: 10px;
     font-weight: 600;
     text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
+    color: #083a51;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.action-step strong {
+    color: #a5291b;
 }
 
-/* Hyperlinks */
+/* ✅ Progress Bar */
+.progress-container {
+    width: 100%;
+    background: #e0e0e0;
+    height: 8px;
+    border-radius: 5px;
+    margin: 15px 0;
+    position: relative;
+}
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #38c5f0;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+}
+.progress-bar.complete {
+    background: #083a51;
+}
+
+/* ✅ Disabled "Next" Button Animation */
+.next-btn.disabled {
+    background: gray;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* ✅ Pulsing Animation */
+@keyframes pulse {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.7; transform: scale(1); }
+}
+
+/* ✅ Default Hyperlink Style */
 a {
-    color: #106a94;
+    color: #df3c26; /* Vot-ER Red */
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: underline;
     transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
+
+/* ✅ Hover Effect */
 a:hover {
+    color: #083a51; /* Vot-ER Dark Blue */
     text-decoration: underline;
-    color: #083a51;
 }
 
-/* Logo Styling */
-.logo {
-    display: block;
-    margin: 0 auto 20px auto;
-    max-width: 220px;
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+/* ✅ QR Codes & Mobile-Only Buttons */
+.qr-code {
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.qr-code img {
+    width: 180px;
+    height: auto;
+    margin: 10px;
+}
+
+/* ✅ Mobile: Show buttons, hide QR codes */
+@media screen and (max-width: 767px) {
+    .mobile-button {
+        display: block;
+    }
+    .qr-code {
+        display: none;
+    }
+}
+
+/* ✅ Desktop: Show QR codes, hide buttons */
+@media screen and (min-width: 768px) {
+    .qr-code {
+        display: block;
+    }
+    .mobile-button {
+        display: none;
+    }
+}
+
+/* ✅ Fixes for Callout Box Readability */
+.callout {
+    background: #f8f6f2;
+    border-left: 5px solid #106a94;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: left;
+    color: #083a51;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 767px) {
+    .callout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .callout img {
+        margin-bottom: 10px;
+    }
 }
